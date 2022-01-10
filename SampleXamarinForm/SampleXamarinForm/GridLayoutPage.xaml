@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleXamarinForm.GridLayoutPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Registration Forms"  
+                  FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="0" Text="First Name :" HorizontalOptions="End"
+                   VerticalOptions="Center"  FontSize="Medium" />
+            <Entry Grid.Row="1" VerticalTextAlignment="Center" 
+                   Grid.Column="1" Placeholder="first name" />
+            <Label Grid.Row="2" Grid.Column="0" Text="Last Name :" HorizontalOptions="End"
+                   VerticalOptions="Center"  FontSize="Medium" />
+            <Entry Grid.Row="2" VerticalOptions="Center" 
+                   Grid.Column="1" Placeholder="last name" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

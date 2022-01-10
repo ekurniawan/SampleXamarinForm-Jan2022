@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleXamarinForm.MainPage">
+
+    <StackLayout Spacing="1">
+        <Entry x:Name="entryNama" Placeholder="masukan nama" />
+        <Label x:Name="lblHello" Text="Hello Xamarin" FontSize="Large" />
+        <Label Text="Belajar Xamarin Forms" TextColor="Red" />
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="btnHello" Clicked="btnHello_Clicked" Text="Hello" />
+            <Button x:Name="btnReset" Text="Reset" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
