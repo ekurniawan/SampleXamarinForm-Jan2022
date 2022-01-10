@@ -15,6 +15,13 @@ namespace SampleXamarinForm
         public GridLayoutPage()
         {
             InitializeComponent();
+            btnSubmit.Clicked += BtnSubmit_Clicked;
+        }
+
+        private void BtnSubmit_Clicked(object sender, EventArgs e)
+        {
+            string result = $"{entryFirstName.Text} - {entryLastName.Text} - {entryEmail.Text}";
+            DisplayAlert("Keterangan", result, "OK");
         }
     }
 }

@@ -8,6 +8,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -18,12 +20,21 @@
                   FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
             <Label Grid.Row="1" Grid.Column="0" Text="First Name :" HorizontalOptions="End"
                    VerticalOptions="Center"  FontSize="Medium" />
-            <Entry Grid.Row="1" VerticalTextAlignment="Center" 
+            <Entry x:Name="entryFirstName" Grid.Row="1" VerticalTextAlignment="Center" 
                    Grid.Column="1" Placeholder="first name" />
             <Label Grid.Row="2" Grid.Column="0" Text="Last Name :" HorizontalOptions="End"
                    VerticalOptions="Center"  FontSize="Medium" />
-            <Entry Grid.Row="2" VerticalOptions="Center" 
+            <Entry x:Name="entryLastName" Grid.Row="2" VerticalOptions="Center" 
                    Grid.Column="1" Placeholder="last name" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Email :" HorizontalOptions="End"
+                   VerticalOptions="Center"  FontSize="Medium" />
+            <Entry x:Name="entryEmail" Grid.Row="3" VerticalOptions="Center" 
+                   Grid.Column="1" Placeholder="email" />
+            <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                <Button x:Name="btnSubmit" Text="Submit" />
+                <Button Text="Reset" />
+            </StackLayout>
 
         </Grid>
     </ContentPage.Content>
