@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace SampleXamarinForm
         {
             InitializeComponent();
             btnSubmit.Clicked += BtnSubmit_Clicked;
+
+            myImage.Source = ImageSource.FromFile(Path.Combine("images", "monyet1.png"));
         }
 
         private void BtnSubmit_Clicked(object sender, EventArgs e)
