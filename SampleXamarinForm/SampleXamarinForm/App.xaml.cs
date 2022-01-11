@@ -14,7 +14,7 @@ namespace SampleXamarinForm
              * ddddd
              * ddddd
              */
-            MainPage = new SimpleListViewPage();
+            MainPage = new ListCoursePage();
         }
 
         protected override void OnStart()
