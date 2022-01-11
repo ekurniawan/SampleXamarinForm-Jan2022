@@ -39,8 +39,12 @@
                 </StackLayout>
                 <StackLayout Grid.Row="5" Grid.Column="1">
                     <Image x:Name="myImage" 
-                           WidthRequest="80" HorizontalOptions="Center"
-                          VerticalOptions="Center" />
+                           WidthRequest="250" HorizontalOptions="Center"
+                          VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </StackLayout>
             </Grid>
         </ScrollView>
