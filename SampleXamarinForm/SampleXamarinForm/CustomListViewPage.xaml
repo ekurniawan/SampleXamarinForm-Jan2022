@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleXamarinForm.CustomListViewPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="lvCourse" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="300" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="0" FontSize="Large" 
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Description}" Grid.Row="1" Grid.Column="0" TextColor="Red" 
+                                       FontSize="Medium"/>
+                                <Label Text="{Binding Price,StringFormat='Price Rp.{0:F0}'}" 
+                                       Grid.Row="2" Grid.Column="0" />
+                                <Image WidthRequest="100" Source="{Binding CoverPic}" 
+                                       Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

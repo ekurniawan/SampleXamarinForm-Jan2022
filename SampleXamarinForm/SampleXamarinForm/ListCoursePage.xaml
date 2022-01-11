@@ -4,10 +4,11 @@
              x:Class="SampleXamarinForm.ListCoursePage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lvCourse">
+            <ListView x:Name="lvCourse" ItemTapped="lvCourse_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Title}" Detail="{Binding Description}" 
+                        <ImageCell ImageSource="{Binding CoverPic}" 
+                                   Text="{Binding Title}" Detail="{Binding Description}" 
                                   DetailColor="Red" />
                     </DataTemplate>
                 </ListView.ItemTemplate>

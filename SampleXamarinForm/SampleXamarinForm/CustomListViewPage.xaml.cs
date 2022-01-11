@@ -1,5 +1,4 @@
-﻿
-using SampleXamarinForm.Models;
+﻿using SampleXamarinForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace SampleXamarinForm
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ListCoursePage : ContentPage
+    public partial class CustomListViewPage : ContentPage
     {
-        public ListCoursePage()
+        public CustomListViewPage()
         {
             InitializeComponent();
 
@@ -22,21 +21,18 @@ namespace SampleXamarinForm
             {
                 new Course() { Title ="CSharp Fundamental",
                     Description ="CSharp Fundamental Training" ,
-                    CoverPic="https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg"},
+                    CoverPic="https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg",
+                    Price=2000000},
                 new Course() { Title ="ASP Core MVC",
                     Description="ASP COre MVC Training for Web Application",
-                    CoverPic="https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg"},
+                    CoverPic="https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg",
+                    Price=3000000},
                 new Course() { Title ="Blazor SPA",
                     Description="SPA Web Development with Blazor",
-                    CoverPic="https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg"}
+                    CoverPic="https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg",
+                    Price=4000000}
             };
             lvCourse.ItemsSource = lstCourse;
-        }
-
-        private void lvCourse_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var data = (Course)e.Item;
-            DisplayAlert("Keterangan", $"{data.Title} {data.Description}", "OK");
         }
     }
 }
