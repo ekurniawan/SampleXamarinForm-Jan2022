@@ -4,7 +4,7 @@
              x:Class="SampleXamarinForm.CustomListViewPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lvCourse" HasUnevenRows="True">
+            <ListView x:Name="lvCourse" HasUnevenRows="True" ItemTapped="lvCourse_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -34,5 +34,11 @@ namespace SampleXamarinForm
             };
             lvCourse.ItemsSource = lstCourse;
         }
+
+        private void lvCourse_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var data = (Course)e.Item;
+            DisplayAlert("Selected", $"Title: {data.Title} \n Price: Rp.{data.Price} \n {data.Description}","OK");
+        }
     }
 }
