@@ -28,6 +28,7 @@
             <Button x:Name="btnDisplayAlert" Text="Display Alert" Clicked="btnDisplayAlert_Clicked" />
             <Button x:Name="btnDisplayActionSheet" Text="Display Action Sheet" Clicked="btnDisplayActionSheet_Clicked" />
         </StackLayout>
+        <Picker x:Name="pickerCity" Title="select city" TitleColor="Red" />
     </StackLayout>
 
 </ContentPage>

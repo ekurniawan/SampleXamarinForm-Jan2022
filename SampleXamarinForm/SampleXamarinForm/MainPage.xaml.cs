@@ -19,6 +19,9 @@ namespace SampleXamarinForm
             {
                 entryLanguage.Text = Preferences.Get("language", "");
             }
+
+            List<string> lstCity = new List<string>() { "Jakarta", "Bandung", "Semarang" };
+            pickerCity.ItemsSource = lstCity;
         }
 
         private void btnHello_Clicked(object sender, EventArgs e)
