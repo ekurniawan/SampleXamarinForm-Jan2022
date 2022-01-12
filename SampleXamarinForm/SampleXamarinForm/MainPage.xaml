@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleXamarinForm.MainPage">
+             x:Class="SampleXamarinForm.MainPage" Title="Home Page">
 
     <StackLayout Spacing="1">
         <Entry x:Name="entryNama" Placeholder="masukan nama" />
@@ -10,6 +10,9 @@
         <StackLayout Orientation="Horizontal">
             <Button x:Name="btnHello" Clicked="btnHello_Clicked" Text="Hello" />
             <Button x:Name="btnReset" Text="Reset" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="btnGridLayout" Text="Grid Layout" Clicked="btnGridLayout_Clicked" />
         </StackLayout>
     </StackLayout>
 

@@ -19,5 +19,10 @@ namespace SampleXamarinForm
         {
             lblHello.Text = entryNama.Text;
         }
+
+        private async void btnGridLayout_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GridLayoutPage());
+        }
     }
 }

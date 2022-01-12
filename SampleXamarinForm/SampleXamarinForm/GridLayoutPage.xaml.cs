@@ -37,5 +37,10 @@ namespace SampleXamarinForm
             await Task.Delay(1000);
             await image.FadeTo(1, 450);
         }
+
+        private async void btnCustomListView_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CustomListViewPage());
+        }
     }
 }
