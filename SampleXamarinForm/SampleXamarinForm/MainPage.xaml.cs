@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace SampleXamarinForm
 {
@@ -13,6 +14,11 @@ namespace SampleXamarinForm
         public MainPage()
         {
             InitializeComponent();
+
+            if (Preferences.ContainsKey("language"))
+            {
+                entryLanguage.Text = Preferences.Get("language", "");
+            }
         }
 
         private void btnHello_Clicked(object sender, EventArgs e)
@@ -29,6 +35,18 @@ namespace SampleXamarinForm
         {
             Global.Instance.username = entryNama.Text;
             DisplayAlert("Keterangan", "Data username sudah disimpan", "OK");
+        }
+
+        private void btnSetPreference_Clicked(object sender, EventArgs e)
+        {
+            if (Preferences.ContainsKey("language"))
+            {
+                entryLanguage.Text = Preferences.Get("language", "");
+            }
+            else
+            {
+                Preferences.Set("language", entryLanguage.Text);
+            }
         }
     }
 }

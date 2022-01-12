@@ -5,6 +5,7 @@
 
     <StackLayout Spacing="1">
         <Entry x:Name="entryNama" Placeholder="masukan nama" />
+        <Entry x:Name="entryLanguage" Placeholder="language" />
         <Label x:Name="lblHello" Text="Hello Xamarin" FontSize="Large" />
         <Label Text="Belajar Xamarin Forms" TextColor="Red" />
         <StackLayout Orientation="Horizontal">
@@ -14,6 +15,7 @@
         <StackLayout Orientation="Horizontal">
             <Button x:Name="btnGridLayout" Text="Grid Layout" Clicked="btnGridLayout_Clicked" />
             <Button x:Name="btnGlobalUsername" Text="Set Username" Clicked="btnGlobalUsername_Clicked" />
+            <Button x:Name="btnSetPreference" Text="Set Preference" Clicked="btnSetPreference_Clicked" />
         </StackLayout>
     </StackLayout>
 

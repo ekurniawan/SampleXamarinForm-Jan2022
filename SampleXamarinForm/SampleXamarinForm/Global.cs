@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleXamarinForm.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,7 +18,7 @@ namespace SampleXamarinForm
                 return _instance;
             }
         }
-        public string myData { get; set; }
+        public Course myCourse { get; set; }
         public string username { get; set; }
     }
 }
