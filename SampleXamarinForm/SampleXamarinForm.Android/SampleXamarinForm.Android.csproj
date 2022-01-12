@@ -83,7 +83,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_add.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleXamarinForm\SampleXamarinForm.csproj">
       <Project>{DC59F377-3895-4ABA-914A-BAF189A93927}</Project>

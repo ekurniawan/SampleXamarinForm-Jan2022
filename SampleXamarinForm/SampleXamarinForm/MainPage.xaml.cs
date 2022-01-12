@@ -41,5 +41,39 @@ namespace SampleXamarinForm
         {
             Preferences.Set("language", entryLanguage.Text);   
         }
+
+        private async void menuCustomList_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CustomListViewPage());
+        }
+
+        private async void menuSimpleList_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SimpleListViewPage());
+        }
+
+        private void menuAdd_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Keterangan", "Add Data", "OK");
+        }
+
+        private async void btnDisplayAlert_Clicked(object sender, EventArgs e)
+        {
+            var result = await DisplayAlert("Konfirmasi", "Delete data?", "Yes", "No");
+            if (result)
+            {
+                await DisplayAlert("Info", "Anda menjawab Yes", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Info", "Anda menjawab No", "OK");
+            }
+        }
+
+        private async void btnDisplayActionSheet_Clicked(object sender, EventArgs e)
+        {
+            var result = await DisplayActionSheet("Send To: ?", "Cancel", "Delete", "Whatsapp", "FB", "Instagram");
+            await DisplayAlert("Info", $"Anda memilih {result}", "OK");
+        }
     }
 }
