@@ -39,14 +39,7 @@ namespace SampleXamarinForm
 
         private void btnSetPreference_Clicked(object sender, EventArgs e)
         {
-            if (Preferences.ContainsKey("language"))
-            {
-                entryLanguage.Text = Preferences.Get("language", "");
-            }
-            else
-            {
-                Preferences.Set("language", entryLanguage.Text);
-            }
+            Preferences.Set("language", entryLanguage.Text);   
         }
     }
 }
