@@ -22,7 +22,7 @@ namespace SampleXamarinForm
 
         private async void btnGridLayout_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GridLayoutPage());
+            await Navigation.PushAsync(new GridLayoutPage(entryNama.Text));
         }
     }
 }
