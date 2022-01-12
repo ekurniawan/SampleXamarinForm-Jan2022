@@ -24,6 +24,23 @@ namespace SampleXamarinForm
                 ImageSource.FromUri(new Uri("https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg"));
         }
 
+        private string _nama;
+        //oveloading constructor
+        public GridLayoutPage(string nama)
+        {
+            InitializeComponent();
+
+            _nama = nama;
+            lblNama.Text = _nama;
+
+            btnSubmit.Clicked += BtnSubmit_Clicked;
+
+            //myImage.Source = ImageSource.FromFile(Path.Combine("images", "monyet1.png"));
+
+            myImage.Source =
+                ImageSource.FromUri(new Uri("https://i0.wp.com/blog.mzikmund.com/wp-content/uploads/2019/02/microsoft-xamirin-1.jpg"));
+        }
+
         private void BtnSubmit_Clicked(object sender, EventArgs e)
         {
             string result = $"{entryFirstName.Text} - {entryLastName.Text} - {entryEmail.Text}";

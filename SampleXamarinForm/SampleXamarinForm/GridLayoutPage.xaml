@@ -48,6 +48,7 @@
                         </Image>
                     </StackLayout>
                 </Grid>
+                <Label x:Name="lblNama" FontSize="Large" />
                 <StackLayout Orientation="Horizontal">
                     <Button x:Name="btnCustomListView" Text="Custom ListView" 
                             Clicked="btnCustomListView_Clicked" />
