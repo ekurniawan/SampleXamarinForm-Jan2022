@@ -24,5 +24,11 @@ namespace SampleXamarinForm
         {
             await Navigation.PushAsync(new GridLayoutPage(entryNama.Text));
         }
+
+        private void btnGlobalUsername_Clicked(object sender, EventArgs e)
+        {
+            Global.Instance.username = entryNama.Text;
+            DisplayAlert("Keterangan", "Data username sudah disimpan", "OK");
+        }
     }
 }

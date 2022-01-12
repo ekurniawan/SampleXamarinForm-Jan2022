@@ -31,6 +31,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button x:Name="btnShowUsername" Text="Show Username" 
+                    Clicked="btnShowUsername_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

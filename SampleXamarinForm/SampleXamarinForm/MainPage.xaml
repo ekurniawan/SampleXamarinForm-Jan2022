@@ -13,6 +13,7 @@
         </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Button x:Name="btnGridLayout" Text="Grid Layout" Clicked="btnGridLayout_Clicked" />
+            <Button x:Name="btnGlobalUsername" Text="Set Username" Clicked="btnGlobalUsername_Clicked" />
         </StackLayout>
     </StackLayout>
 

@@ -40,5 +40,11 @@ namespace SampleXamarinForm
             var data = (Course)e.Item;
             DisplayAlert("Selected", $"Title: {data.Title} \n Price: Rp.{data.Price} \n {data.Description}","OK");
         }
+
+        private void btnShowUsername_Clicked(object sender, EventArgs e)
+        {
+            string username = Global.Instance.username;
+            DisplayAlert("Username", $"Username : {username}", "OK");
+        }
     }
 }
