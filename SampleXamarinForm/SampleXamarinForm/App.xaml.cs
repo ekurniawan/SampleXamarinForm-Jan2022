@@ -17,6 +17,7 @@ namespace SampleXamarinForm
             MainPage = new NavigationPage(new MyMasterPage());
         }
 
+        
         protected override void OnStart()
         {
         }

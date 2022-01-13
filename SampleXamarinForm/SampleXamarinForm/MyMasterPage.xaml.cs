@@ -31,5 +31,19 @@ namespace SampleXamarinForm
             IsPresented = false;
             MasterPage.ListView.SelectedItem = null;
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                if (await DisplayAlert("Exit?", "Are you sure want to exit?", "Yes", "No"))
+                {
+                    base.OnBackButtonPressed();
+                    await this.Navigation.PopAsync();
+                }
+            });
+
+            return true;
+        }
     }
 }

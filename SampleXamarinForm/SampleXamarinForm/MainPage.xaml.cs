@@ -24,6 +24,7 @@ namespace SampleXamarinForm
             pickerCity.ItemsSource = lstCity;
         }
 
+        
         private void btnHello_Clicked(object sender, EventArgs e)
         {
             lblHello.Text = entryNama.Text;
