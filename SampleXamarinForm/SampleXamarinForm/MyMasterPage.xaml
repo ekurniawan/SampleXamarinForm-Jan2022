@@ -4,7 +4,7 @@
              x:Class="SampleXamarinForm.MyMasterPage"
              xmlns:page="clr-namespace:SampleXamarinForm">
     <MasterDetailPage.Master>
-        <page:MainPage x:Name="MasterPage" />
+        <page:SideMenuPage x:Name="MasterPage" />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>
