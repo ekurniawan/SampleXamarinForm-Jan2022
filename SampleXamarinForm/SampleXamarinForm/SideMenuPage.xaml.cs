@@ -16,17 +16,19 @@ namespace SampleXamarinForm
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SideMenuPage : ContentPage
     {
+        public ListView ListView;
+
         public SideMenuPage()
         {
             InitializeComponent();
+            ListView = lvMenuSide;
+            BindingContext = new SideMenuPageViewModel();
         }
     }
 
     class SideMenuPageViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<MyMenuItem> MenuItems { get; set; }
-        
-
         public SideMenuPageViewModel()
         {
             MenuItems = new ObservableCollection<MyMenuItem>(new[]{

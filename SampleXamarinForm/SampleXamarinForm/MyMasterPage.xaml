@@ -2,9 +2,10 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleXamarinForm.MyMasterPage"
-             xmlns:page="clr-namespace:SampleXamarinForm">
+             xmlns:page="clr-namespace:SampleXamarinForm" Title="Master Page" 
+                  NavigationPage.HasNavigationBar="False">
     <MasterDetailPage.Master>
-        <page:SideMenuPage x:Name="MasterPage" />
+        <page:SideMenuPage x:Name="MasterPage" Title="Side Menu" />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>
