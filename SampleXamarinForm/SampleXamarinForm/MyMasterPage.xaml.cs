@@ -39,7 +39,7 @@ namespace SampleXamarinForm
                 if (await DisplayAlert("Exit?", "Are you sure want to exit?", "Yes", "No"))
                 {
                     base.OnBackButtonPressed();
-                    await this.Navigation.PopAsync();
+                    System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
                 }
             });
 
