@@ -5,11 +5,11 @@ using System.Text;
 namespace SampleXamarinForm.Models
 {
 
-    public class MenuItem
+    public class MyMenuItem
     {
-        public MenuItem()
+        public MyMenuItem()
         {
-            TargetType = typeof(MenuItem);        
+            TargetType = typeof(MyMenuItem);        
         }
 
         public int Id { get; set; }
