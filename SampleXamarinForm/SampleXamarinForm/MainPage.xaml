@@ -30,5 +30,4 @@
         </StackLayout>
         <Picker x:Name="pickerCity" Title="select city" TitleColor="Red" />
     </StackLayout>
-
 </ContentPage>
