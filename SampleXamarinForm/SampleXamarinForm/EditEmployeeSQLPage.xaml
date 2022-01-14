@@ -39,7 +39,7 @@
             <Entry x:Name="txtDepartment" Text="{Binding Department}" Placeholder="department" Grid.Row="4" Grid.Column="1" />
 
             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="5">
-                <Button x:Name="btnSubmit" Text="Submit" />
+                <Button x:Name="btnSubmit" Text="Submit" Clicked="btnSubmit_Clicked" />
                 <Button x:Name="btnCancel" Text="Cancel" />
             </StackLayout>
         </Grid>
