@@ -41,6 +41,7 @@ namespace SampleXamarinForm.Data
 
         public IEnumerable<Employee> GetAll()
         {
+            //var results = db.Query<Employee>("select * from Employee order by EmpName");
             var results = from e in db.Table<Employee>()
                           orderby e.EmployeeName ascending
                           select e;

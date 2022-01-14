@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleXamarinForm.AddEmployeeSQLPage" Title="Add Employee">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Emp Name :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="0" />
+            <Entry x:Name="txtEmpName" Placeholder="employee name" Grid.Row="0" Grid.Column="1" />
+
+            <Label Text="Email :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="1" />
+            <Entry x:Name="txtEmail" Placeholder="employee email" Grid.Row="1" Grid.Column="1" />
+
+            <Label Text="Qualification :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="2" />
+            <Entry x:Name="txtQualification" Placeholder="qualification" Grid.Row="2" Grid.Column="1" />
+
+            <Label Text="Department :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="3" />
+            <Entry x:Name="txtDepartment" Placeholder="department" Grid.Row="3" Grid.Column="1" />
+
+            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="4">
+                <Button x:Name="btnSubmit" Text="Submit" />
+                <Button x:Name="btnCancel" Text="Cancel" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
