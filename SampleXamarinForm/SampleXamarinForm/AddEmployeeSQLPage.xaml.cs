@@ -37,6 +37,7 @@ namespace SampleXamarinForm
                 if (result == 1)
                 {
                     await DisplayAlert("Info", $"Data employee {newEmployee.EmployeeName} berhasil ditambah", "OK");
+                    await Navigation.PopAsync();
                 }
                 else
                 {

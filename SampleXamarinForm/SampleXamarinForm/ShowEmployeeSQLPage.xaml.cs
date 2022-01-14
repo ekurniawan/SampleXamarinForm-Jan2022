@@ -25,5 +25,10 @@ namespace SampleXamarinForm
             base.OnAppearing();
             lvEmployee.ItemsSource = _dataAccess.GetAll();
         }
+
+        private async void tbAddEmployee_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddEmployeeSQLPage());
+        }
     }
 }
