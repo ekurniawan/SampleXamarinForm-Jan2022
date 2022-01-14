@@ -21,10 +21,15 @@ namespace SampleXamarinForm
             _dataAccess = new DataAccess();
         }
 
+        private void RefreshData()
+        {
+            lvEmployee.ItemsSource = _dataAccess.GetAll();
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            lvEmployee.ItemsSource = _dataAccess.GetAll();
+            RefreshData();
         }
 
         private async void tbAddEmployee_Clicked(object sender, EventArgs e)
@@ -45,6 +50,38 @@ namespace SampleXamarinForm
             EditEmployeeSQLPage editEmployeePage = new EditEmployeeSQLPage();
             editEmployeePage.BindingContext = editData;
             await Navigation.PushAsync(editEmployeePage);
+        }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            var data = (MenuItem)sender;
+            var confirm = await DisplayAlert("Konfirmasi", "Delete data?", "Yes", "No");
+            if (confirm)
+            {
+                var employeeId = Convert.ToInt32(data.CommandParameter);
+                try
+                {
+                    var delEmployee = new Employee
+                    {
+                        EmployeeId = employeeId
+                    };
+
+                    var result = _dataAccess.DeleteEmployee(delEmployee);
+                    if(result==1)
+                    {
+                        await DisplayAlert("Info","Data berhasil di delete","OK");
+                        RefreshData();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Data gagal didelete", "OK");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", $"{ex.Message}", "OK");
+                }
+            }
         }
     }
 }
