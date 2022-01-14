@@ -46,5 +46,28 @@ namespace SampleXamarinForm
                 await DisplayAlert("Error", $"{ex.Message}", "OK");
             }
         }
+
+        private async void btnDelete_Clicked(object sender, EventArgs e)
+        {
+            var deleteEmp = new Employee
+            {
+                EmployeeId = Convert.ToInt32(txtEmpID.Text)
+            };
+
+            try
+            {
+                var confirm = await DisplayAlert("Konfirmasi", "Apakah akan delete data?", "Yes", "No");
+                if (confirm)
+                {
+                    _dataAccess.DeleteEmployee(deleteEmp);
+                    await DisplayAlert("Info", "Data berhasil di delete", "OK");
+                    await Navigation.PopAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"{ex.Message}", "OK");
+            }
+        }
     }
 }
