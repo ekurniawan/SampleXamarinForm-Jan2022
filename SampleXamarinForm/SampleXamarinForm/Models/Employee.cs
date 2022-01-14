@@ -13,5 +13,6 @@ namespace SampleXamarinForm.Models
         public string Email { get; set; }
         public string Qualification { get; set; }
         public string Department { get; set; }
+        
     }
 }

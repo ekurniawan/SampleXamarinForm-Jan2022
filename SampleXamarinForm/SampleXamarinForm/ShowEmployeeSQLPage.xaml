@@ -5,6 +5,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="tbAddEmployee" Text="Add Employee" Order="Secondary" 
                      Clicked="tbAddEmployee_Clicked" />
+        <ToolbarItem x:Name="tbTestDate" Text="Test Date" Order="Secondary" Clicked="tbTestDate_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

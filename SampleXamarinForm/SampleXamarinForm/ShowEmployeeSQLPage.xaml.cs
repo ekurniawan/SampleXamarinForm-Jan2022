@@ -30,5 +30,12 @@ namespace SampleXamarinForm
         {
             await Navigation.PushAsync(new AddEmployeeSQLPage());
         }
+
+        private void tbTestDate_Clicked(object sender, EventArgs e)
+        {
+            var currentDate = DateTime.Now;
+            var result = currentDate.ToUniversalTime();
+            DisplayAlert("Info",result.ToLongTimeString(), "OK");
+        }
     }
 }
