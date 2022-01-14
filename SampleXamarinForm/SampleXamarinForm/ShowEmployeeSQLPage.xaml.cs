@@ -1,4 +1,5 @@
 ﻿using SampleXamarinForm.Data;
+using SampleXamarinForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,14 @@ namespace SampleXamarinForm
             var currentDate = DateTime.Now;
             var result = currentDate.ToUniversalTime();
             DisplayAlert("Info",result.ToLongTimeString(), "OK");
+        }
+
+        private async void lvEmployee_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var editData = (Employee)e.Item;
+            EditEmployeeSQLPage editEmployeePage = new EditEmployeeSQLPage();
+            editEmployeePage.BindingContext = editData;
+            await Navigation.PushAsync(editEmployeePage);
         }
     }
 }

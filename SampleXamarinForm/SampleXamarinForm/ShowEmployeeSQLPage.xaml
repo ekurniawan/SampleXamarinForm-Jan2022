@@ -9,7 +9,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lvEmployee">
+            <ListView x:Name="lvEmployee" ItemTapped="lvEmployee_ItemTapped">
                 <ListView.Header>
                     <Grid>
                         <Grid.RowDefinitions>
