@@ -21,7 +21,7 @@ namespace SampleXamarinForm
             _dataAccess = new DataAccess();
         }
 
-        private void btnSubmit_Clicked(object sender, EventArgs e)
+        private async void btnSubmit_Clicked(object sender, EventArgs e)
         {
             var newEmployee = new Employee
             {
@@ -34,12 +34,18 @@ namespace SampleXamarinForm
             try
             {
                 var result = _dataAccess.InsertEmployee(newEmployee);
-                
+                if (result == 1)
+                {
+                    await DisplayAlert("Info", $"Data employee {newEmployee.EmployeeName} berhasil ditambah", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Gagal menambahkan employee", "OK");
+                }
             }
             catch (Exception ex)
             {
-
-                throw;
+                await DisplayAlert("Error", $"{ex.Message}", "OK");
             }
         }
     }
