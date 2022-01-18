@@ -1,5 +1,6 @@
 ﻿using BackendServices.Models;
 using System.Data.SqlClient;
+using Dapper;
 
 namespace BackendServices.DAL
 {
@@ -20,8 +21,18 @@ namespace BackendServices.DAL
         {
             throw new NotImplementedException();
         }
-
         public IEnumerable<Employee> GetAll()
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"select * from Employees 
+                                  order by EmployeeName asc";
+                var results = conn.Query<Employee>(strSql);
+                return results;
+            }
+        }
+
+        /*public IEnumerable<Employee> GetAll()
         {
             List<Employee> employees = new List<Employee>();
             using (SqlConnection conn = new SqlConnection(GetConnStr()))
@@ -50,9 +61,21 @@ namespace BackendServices.DAL
                 conn.Close();
             }
             return employees;
-        }
+        }*/
 
         public Employee GetById(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"select * from Employees 
+                                  where EmployeeId=@EmployeeId";
+                var param = new { EmployeeId = id };
+                var result = conn.QuerySingleOrDefault<Employee>(strSql,param);
+                return result;
+            }
+        }
+
+        /*public Employee GetById(int id)
         {
             Employee employee = new Employee();
             using (SqlConnection conn = new SqlConnection(GetConnStr()))
@@ -81,7 +104,7 @@ namespace BackendServices.DAL
                 conn.Close();
             }
             return employee;
-        }
+        }*/
 
         public Employee Insert(Employee employee)
         {
