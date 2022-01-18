@@ -61,6 +61,7 @@ namespace BackendServices.DAL
                                   where EmployeeId=@EmployeeId";
                 SqlCommand cmd = new SqlCommand(strSql, conn);
                 cmd.Parameters.AddWithValue("EmployeeId", id);
+                conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -70,6 +71,10 @@ namespace BackendServices.DAL
                     employee.Email = dr["Email"].ToString();
                     employee.Department = dr["Department"].ToString();
                     employee.Qualification = dr["Qualification"].ToString();
+                }
+                else
+                {
+                    employee = null;
                 }
                 dr.Close();
                 cmd.Dispose();

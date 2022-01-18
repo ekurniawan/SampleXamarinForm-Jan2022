@@ -21,5 +21,15 @@ namespace BackendServices.Controllers
             var results = _employees.GetAll();
             return results;
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Employee> Get(int id)
+        {
+            var result = _employees.GetById(id);
+            if (result == null)
+                return NotFound();
+
+            return result;
+        }
     }
 }
