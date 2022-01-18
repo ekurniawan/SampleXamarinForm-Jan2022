@@ -54,7 +54,28 @@ namespace BackendServices.DAL
 
         public Employee GetById(int id)
         {
-            throw new NotImplementedException();
+            Employee employee = new Employee();
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"select * from Employees 
+                                  where EmployeeId=@EmployeeId";
+                SqlCommand cmd = new SqlCommand(strSql, conn);
+                cmd.Parameters.AddWithValue("EmployeeId", id);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Read();
+                    employee.EmployeeId = Convert.ToInt32(dr["EmployeeId"]);
+                    employee.EmployeeName = dr["EmployeeName"].ToString();
+                    employee.Email = dr["Email"].ToString();
+                    employee.Department = dr["Department"].ToString();
+                    employee.Qualification = dr["Qualification"].ToString();
+                }
+                dr.Close();
+                cmd.Dispose();
+                conn.Close();
+            }
+            return employee;
         }
 
         public Employee Insert(Employee employee)
