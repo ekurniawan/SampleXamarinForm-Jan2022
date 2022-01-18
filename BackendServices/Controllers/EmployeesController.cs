@@ -59,5 +59,19 @@ namespace BackendServices.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                _employees.Delete(id);
+                return Ok($"Delete employee {id} berhasil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

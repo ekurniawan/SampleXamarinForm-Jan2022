@@ -19,7 +19,19 @@ namespace BackendServices.DAL
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"delete from Employees where EmployeeId=@EmployeeId";
+                var param = new { EmployeeId = id };
+                try
+                {
+                    conn.Execute(strSql, param);
+                }
+                catch (SqlException sqlEx)
+                {
+                    throw new Exception(sqlEx.Message);
+                }
+            }
         }
         public IEnumerable<Employee> GetAll()
         {
