@@ -134,7 +134,36 @@ namespace BackendServices.DAL
 
         public void Update(int id, Employee employee)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                var updateEmployee = GetById(id);
+                if (updateEmployee == null)
+                    throw new Exception("Data tidak ditemukan");
+
+                var strSql = @"update Employees set EmployeeName=@EmployeeName,Email=@Email,
+                Qualification=@Qualification,Department=@Department 
+                where EmployeeId=@EmployeeId";
+
+                var param = new
+                {
+                    EmployeeName = employee.EmployeeName,
+                    Email = employee.Email,
+                    Qualification = employee.Qualification,
+                    Department = employee.Department,
+                    EmployeeId = id
+                };
+
+                try
+                {
+                    var result = conn.Execute(strSql, param);
+                    if (result != 1)
+                        throw new Exception("Data gagal diupdate");
+                }
+                catch (SqlException sqlEx)
+                {
+                    throw new Exception(sqlEx.Message);
+                }
+            }
         }
     }
 }
