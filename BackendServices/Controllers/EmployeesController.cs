@@ -45,5 +45,19 @@ namespace BackendServices.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut("{id}")]
+        public ActionResult Update(int id,Employee employee)
+        {
+            try
+            {
+                _employees.Update(id, employee);
+                return Ok($"Data {id} berhasil diupdate");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
