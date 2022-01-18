@@ -31,5 +31,19 @@ namespace BackendServices.Controllers
 
             return result;
         }
+
+        [HttpPost]
+        public ActionResult Insert(Employee employee)
+        {
+            try
+            {
+                _employees.Insert(employee);
+                return Ok("Data berhasil ditambahkan");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

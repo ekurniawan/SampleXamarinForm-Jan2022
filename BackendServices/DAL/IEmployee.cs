@@ -6,8 +6,8 @@ namespace BackendServices.DAL
     {
         IEnumerable<Employee> GetAll();
         Employee GetById(int id);
-        Employee Insert(Employee employee);
-        Employee Update(int id,Employee employee);
+        void Insert(Employee employee);
+        void Update(int id,Employee employee);
         void Delete(int id);
     }
 }

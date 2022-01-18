@@ -106,12 +106,33 @@ namespace BackendServices.DAL
             return employee;
         }*/
 
-        public Employee Insert(Employee employee)
+        public void Insert(Employee employee)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"insert into Employees(EmployeeName,Email,Qualification,Department) 
+                                  values(@EmployeeName,@Email,@Qualification,@Department)";
+                var param = new
+                {
+                    EmployeeName = employee.EmployeeName,
+                    Email = employee.Email,
+                    Qualification = employee.Qualification,
+                    Department = employee.Department
+                };
+                try
+                {
+                    var result = conn.Execute(strSql, param);
+                    if (result != 1)
+                        throw new Exception("Gagal untuk insert employee data");
+                }
+                catch (SqlException sqlEx)
+                {
+                    throw new Exception(sqlEx.Message);
+                }
+            }
         }
 
-        public Employee Update(int id, Employee employee)
+        public void Update(int id, Employee employee)
         {
             throw new NotImplementedException();
         }
