@@ -9,5 +9,7 @@ namespace BackendServices.DAL
         void Insert(Employee employee);
         void Update(int id,Employee employee);
         void Delete(int id);
+        IEnumerable<ViewEmployeeAddress> GetAllEmployeeWithAddress();
+
     }
 }

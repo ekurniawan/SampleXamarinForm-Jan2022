@@ -43,7 +43,7 @@ namespace BackendServices.DAL
                 return results;
             }
         }
-
+        
         /*public IEnumerable<Employee> GetAll()
         {
             List<Employee> employees = new List<Employee>();
@@ -176,6 +176,11 @@ namespace BackendServices.DAL
                     throw new Exception(sqlEx.Message);
                 }
             }
+        }
+
+        public IEnumerable<ViewEmployeeAddress> GetAllEmployeeWithAddress()
+        {
+            throw new NotImplementedException();
         }
     }
 }
