@@ -180,7 +180,13 @@ namespace BackendServices.DAL
 
         public IEnumerable<ViewEmployeeAddress> GetAllEmployeeWithAddress()
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"select * from ViewEmployeeAddress 
+                                  order by EmployeeName asc";
+                var results = conn.Query<ViewEmployeeAddress>(strSql);
+                return results;
+            }
         }
     }
 }

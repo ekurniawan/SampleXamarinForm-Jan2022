@@ -22,6 +22,13 @@ namespace BackendServices.Controllers
             return results;
         }
 
+        [HttpGet("WithAddress")]
+        public IEnumerable<ViewEmployeeAddress> GetEmployeeWithAddress()
+        {
+            var results = _employees.GetAllEmployeeWithAddress();
+            return results;
+        }
+
         [HttpGet("{id}")]
         public ActionResult<Employee> Get(int id)
         {
