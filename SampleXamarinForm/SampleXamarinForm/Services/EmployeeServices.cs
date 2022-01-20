@@ -91,7 +91,7 @@ namespace SampleXamarinForm.Services
                 throw new Exception($"Error: {ex.Message}");
             }
         }
-;
+
         public async Task DeleteEmployee(int id)
         {
             var uri = new Uri($"{Helpers.GetServiceUrl.restUrl}/api/Employees/{id}");

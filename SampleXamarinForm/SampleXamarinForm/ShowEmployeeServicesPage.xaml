@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleXamarinForm.ShowEmployeeServicesPage">
     <ContentPage.Content>
-        <ListView x:Name="lvEmployees">
+        <ListView x:Name="lvEmployees" HasUnevenRows="True" 
+                  IsPullToRefreshEnabled="True" Refreshing="lvEmployees_Refreshing"
+                  RefreshControlColor="Orange">
             <ListView.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -25,6 +27,34 @@
                                Grid.Column="3" Grid.Row="0" VerticalOptions="Center" />
                 </Grid>
             </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" CommandParameter="{Binding EmployeeId}" />
+                        </ViewCell.ContextActions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding EmployeeId}" FontSize="Medium" FontAttributes="Bold"
+                               Grid.Column="0" Grid.Row="0" VerticalOptions="Center" />
+                            <Label Text="{Binding EmployeeName}" FontSize="Medium" FontAttributes="Bold"
+                               Grid.Column="1" Grid.Row="0" VerticalOptions="Center" />
+                            <Label Text="{Binding Qualification}" FontSize="Medium" FontAttributes="Bold"
+                               Grid.Column="2" Grid.Row="0" VerticalOptions="Center" />
+                            <Label Text="{Binding Department}" FontSize="Medium" FontAttributes="Bold"
+                               Grid.Column="3" Grid.Row="0" VerticalOptions="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
 </ContentPage>

@@ -33,7 +33,7 @@ namespace SampleXamarinForm
         {
             MenuItems = new ObservableCollection<MyMenuItem>(new[]{
                 new MyMenuItem(){Id=0,Title="Main Page",TargetType=typeof(MainPage),ImageIcon="ic_add.png"},
-                new MyMenuItem(){Id=1,Title="Setup Employee",TargetType=typeof(ShowEmployeeSQLPage),ImageIcon="ic_add.png"},
+                new MyMenuItem(){Id=1,Title="Setup Employee",TargetType=typeof(ShowEmployeeServicesPage),ImageIcon="ic_add.png"},
                 new MyMenuItem(){Id=2,Title="Simple List",TargetType=typeof(SimpleListViewPage),ImageIcon="ic_add.png"},
                 new MyMenuItem(){Id=3,Title="Custom List",TargetType=typeof(CustomListViewPage),ImageIcon="ic_add.png"},
                 new MyMenuItem(){Id=4,Title="Tab Page",TargetType=typeof(MyTabbedPage),ImageIcon="ic_add.png"}
