@@ -38,9 +38,74 @@ namespace SampleXamarinForm.Services
             }
         }
 
-        public async Task AddEmployee()
+        public async Task<Employee> GetById(int id)
         {
+            Employee employee = new Employee();
+            var uri = new Uri($"{Helpers.GetServiceUrl.restUrl}/api/Employees/{id}");
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    employee = JsonConvert.DeserializeObject<Employee>(content);
+                }
+                return employee;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
 
+        public async Task AddEmployee(Employee employee)
+        {
+            var uri = new Uri($"{Helpers.GetServiceUrl.restUrl}/api/Employees");
+            try
+            {
+                var json = JsonConvert.SerializeObject(employee);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _client.PostAsync(uri,content);
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception("Gagal menambahkan data employee");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
+
+        public async Task EditEmployee(int id, Employee employee)
+        {
+            var uri = new Uri($"{Helpers.GetServiceUrl.restUrl}/api/Employees/{id}");
+            try
+            {
+                var json = JsonConvert.SerializeObject(employee);
+                var content = new StringContent(json,Encoding.UTF8, "application/json");
+                var response = await _client.PutAsync(uri, content);
+                if(!response.IsSuccessStatusCode)
+                    throw new Exception($"Gagal update data");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+        }
+;
+        public async Task DeleteEmployee(int id)
+        {
+            var uri = new Uri($"{Helpers.GetServiceUrl.restUrl}/api/Employees/{id}");
+            try
+            {
+                var response = await _client.DeleteAsync(uri);
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception($"Gagal untuk mendelete data {id}");
+                
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
         }
     }
 }
