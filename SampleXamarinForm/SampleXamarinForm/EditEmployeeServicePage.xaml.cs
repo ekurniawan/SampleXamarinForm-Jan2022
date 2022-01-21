@@ -40,6 +40,25 @@ namespace SampleXamarinForm
             {
                 await DisplayAlert("Info", $"Error: {ex.Message}", "OK");
             }
-        }        
+        }
+
+        private async void btnDelete_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = await DisplayAlert("Konfirmasi",
+                    $"Apakah benar anda akan mendelete data Employee {txtEmpName.Text} ?", "Yes", "No");
+                if (result)
+                {
+                    await _employeeServices.DeleteEmployee(Convert.ToInt32(txtEmpID.Text));
+                    await DisplayAlert("Info", $"Data Employee {txtEmpName.Text} berhadil di delete", "OK");
+                    await Navigation.PopAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Keterangan",ex.Message,"OK");
+            }
+        }
     }
 }

@@ -42,7 +42,7 @@
             <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="5" 
                          Grid.ColumnSpan="2" HorizontalOptions="End">
                 <Button x:Name="btnEdit" Text="Edit" Clicked="btnEdit_Clicked"  />
-                <Button x:Name="btnDelete" Text="Delete"  />
+                <Button x:Name="btnDelete" Text="Delete" Clicked="btnDelete_Clicked"  />
                 <Button x:Name="btnCancel" Text="Cancel" />
             </StackLayout>
         </Grid>
