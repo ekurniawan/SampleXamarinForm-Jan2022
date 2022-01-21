@@ -58,6 +58,15 @@ namespace SampleXamarinForm.Data
             return result;
         }
 
+        public void UpdateFlag(Employee emp)
+        {
+            var updateEmp = GetById(emp.EmployeeId);
+            if (updateEmp == null)
+                throw new Exception("Data employee tidak ditemukan");
+            updateEmp.flag = "Black";
+            db.Update(updateEmp);
+        }
+
         public int DeleteEmployee(Employee emp)
         {
             var deleteEmp = GetById(emp.EmployeeId);

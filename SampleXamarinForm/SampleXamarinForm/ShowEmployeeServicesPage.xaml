@@ -31,7 +31,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Delete" CommandParameter="{Binding EmployeeId}" />
+                            <MenuItem x:Name="ctxEdit" Text="Edit" CommandParameter="{Binding EmployeeId}"
+                                      Clicked="ctxEdit_Clicked"/>
+                            <MenuItem x:Name="ctxDelete" Text="Delete" CommandParameter="{Binding EmployeeId}"
+                                      Clicked="ctxDelete_Clicked"/>
                         </ViewCell.ContextActions>
                         <Grid>
                             <Grid.RowDefinitions>

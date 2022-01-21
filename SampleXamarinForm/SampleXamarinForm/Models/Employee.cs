@@ -13,6 +13,8 @@ namespace SampleXamarinForm.Models
         public string Email { get; set; }
         public string Qualification { get; set; }
         public string Department { get; set; }
-        
+        public string flag { get; set; }
+        public double lat { get; set; }
+        public double lon { get; set; }
     }
 }

@@ -8,17 +8,21 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
+using SampleXamarinForm.Services;
 
 namespace SampleXamarinForm
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShowEmployeeSQLPage : ContentPage
     {
+        private EmployeeServices _employeeServices;
         private DataAccess _dataAccess;
         public ShowEmployeeSQLPage()
         {
             InitializeComponent();
             _dataAccess = new DataAccess();
+            _employeeServices = new EmployeeServices();
         }
 
         private void RefreshData()
@@ -81,6 +85,39 @@ namespace SampleXamarinForm
                 {
                     await DisplayAlert("Error", $"{ex.Message}", "OK");
                 }
+            }
+        }
+
+        private async void btnSendToServer_Clicked(object sender, EventArgs e)
+        {
+            var currentConn = Connectivity.NetworkAccess;
+            if(currentConn == NetworkAccess.Internet)
+            {
+                try
+                {
+                    //ambil semua data dari sqlite
+                    var sqliteData = _dataAccess.GetAll().ToList();
+                    foreach (var emp in sqliteData)
+                    {
+                        if (emp.flag == "Red")
+                        {
+                            //insert data ke server
+                            await _employeeServices.AddEmployee(emp);
+                            //update flag
+                            _dataAccess.UpdateFlag(emp);
+                            RefreshData();
+                        }
+                    }
+                    await DisplayAlert("Info", "Local Data uploaded successfuly !", "OK");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", $"Error: {ex.Message}", "OK");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Info", "Tidak ada koneksi internet..", "OK");
             }
         }
     }
