@@ -1,4 +1,5 @@
-﻿using SampleXamarinForm.Services;
+﻿using SampleXamarinForm.Models;
+using SampleXamarinForm.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,14 @@ namespace SampleXamarinForm
         private async void btnAdd_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddEmployeeServicePage());
+        }
+
+        private async void lvEmployees_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var data = (Employee)e.Item;
+            EditEmployeeServicePage editPage = new EditEmployeeServicePage();
+            editPage.BindingContext = data;
+            await Navigation.PushAsync(editPage);
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleXamarinForm.EditEmployeeServicePage" 
+             Title="Edit Employee">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Emp ID :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="0" />
+            <Entry x:Name="txtEmpID" Text="{Binding EmployeeId}" IsReadOnly="True" Placeholder="employee name" Grid.Row="0" Grid.Column="1" />
+
+            <Label Text="Emp Name :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="1" />
+            <Entry x:Name="txtEmpName" Text="{Binding EmployeeName}" Placeholder="employee name" Grid.Row="1" Grid.Column="1" />
+
+            <Label Text="Email :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="2" />
+            <Entry x:Name="txtEmail" Text="{Binding Email}" Placeholder="employee email" Grid.Row="2" Grid.Column="1" />
+
+            <Label Text="Qualification :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="3" />
+            <Entry x:Name="txtQualification" Text="{Binding Qualification}" Placeholder="qualification" Grid.Row="3" Grid.Column="1" />
+
+            <Label Text="Department :" FontSize="Medium" HorizontalOptions="End"
+                   VerticalOptions="Center" Grid.Column="0" Grid.Row="4" />
+            <Entry x:Name="txtDepartment" Text="{Binding Department}" Placeholder="department" Grid.Row="4" Grid.Column="1" />
+
+            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="5" 
+                         Grid.ColumnSpan="2" HorizontalOptions="End">
+                <Button x:Name="btnEdit" Text="Edit" Clicked="btnEdit_Clicked"  />
+                <Button x:Name="btnDelete" Text="Delete"  />
+                <Button x:Name="btnCancel" Text="Cancel" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

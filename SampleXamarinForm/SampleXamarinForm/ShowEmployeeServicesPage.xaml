@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <ListView x:Name="lvEmployees" HasUnevenRows="True" 
                   IsPullToRefreshEnabled="True" Refreshing="lvEmployees_Refreshing"
-                  RefreshControlColor="Orange">
+                  RefreshControlColor="Orange" ItemTapped="lvEmployees_ItemTapped">
             <ListView.Header>
                 <Grid>
                     <Grid.RowDefinitions>
