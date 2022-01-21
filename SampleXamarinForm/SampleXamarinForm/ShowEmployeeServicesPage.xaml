@@ -55,6 +55,11 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Button x:Name="btnAdd" Text="Add" Clicked="btnAdd_Clicked" />
+                </StackLayout>
+            </ListView.Footer>
         </ListView>
     </ContentPage.Content>
 </ContentPage>
